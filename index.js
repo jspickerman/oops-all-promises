@@ -5,16 +5,16 @@ import './style.css';
 const appDiv = document.getElementById('app');
 appDiv.innerHTML = `<h1>JS Starter</h1>`;
 
-const waitFiveHundred = async () => {
-  setTimeout(() => {
-    return '500 passed!';
-  }, 5000)
-}
+const waitFor = (delay) => {
+  console.log('waiting for ' + delay + ' ms');
+  return new Promise(resolve => setTimeout(resolve, delay))
+};
 
-function test() {
+async function test() {
   console.log('yeet!');
-  console.log('500 start!');
-  waitFiveHundred().then(console.log('done!'));
+  waitFor(5000).then(() => console.log('done!'));
+  const holdUp = await waitFor(7500);
+  console.log(holdUp);
 }
 
 test();
