@@ -22,7 +22,10 @@ async function test() {
   const holdUp7500 = await waitFor(7500);
   console.log(holdUp7500);
 
-  const holdUp9500 = await waitFor(9500 );
+  const holdUp8500 = await waitFor(8500);
+  console.log(holdUp8500);
+
+  const holdUp9500 = await waitFor(9500);
   console.log(holdUp9500);
 }
 
