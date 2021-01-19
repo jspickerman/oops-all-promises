@@ -7,14 +7,23 @@ appDiv.innerHTML = `<h1>JS Starter</h1>`;
 
 const waitFor = (delay) => {
   console.log('waiting for ' + delay + ' ms');
-  return new Promise(resolve => setTimeout(resolve(delay), delay))
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(delay);
+    }, delay)
+  })
 };
 
 async function test() {
   console.log('yeet!');
-  waitFor(5000).then((data) => console.log(data));
-  const holdUp = await waitFor(7500);
-  console.log(holdUp);
+  const holdUp5000 = waitFor(5000);
+  holdUp5000.then((timeout) => console.log(timeout));
+
+  const holdUp7500 = await waitFor(7500);
+  console.log(holdUp7500);
+
+  const holdUp9500 = await waitFor(9500 );
+  console.log(holdUp9500);
 }
 
 test();
